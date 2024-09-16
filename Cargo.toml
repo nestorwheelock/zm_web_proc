@@ -1,0 +1,9 @@
+[package]
+name = "zm_web_proc"
+version = "0.1.0"
+edition = "2021"
+author = "Nestor Wheelock"
+license = "GNU GPLv3"
+description = "Toolchain to process zoneminder Export.zip into converted and organized webm videos for website. Usage: zm_web_proc Export.zip"
+[dependencies]
+rayon = "1.5"
