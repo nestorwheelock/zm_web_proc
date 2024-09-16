@@ -18,13 +18,13 @@ fn unzip_file(zip_file: &str) -> Result<String, std::io::Error> {
     Ok(dir_name)
 }
 
-fn run_vidsort(dir_name: &str) -> Result<(), std::io::Error> {
-    let status = Command::new("vidsort")
+fn run_zm_vidsort(dir_name: &str) -> Result<(), std::io::Error> {
+    let status = Command::new("zm_vidsort")
         .current_dir(dir_name)
         .status()?;
     
     if !status.success() {
-        eprintln!("vidsort command failed");
+        eprintln!("zm_vidsort command failed");
         exit(1);
     }
 
@@ -81,7 +81,7 @@ fn main() -> Result<(), std::io::Error> {
     let zip_file = &args[1];
     let dir_name = unzip_file(zip_file)?;
 
-    run_vidsort(&dir_name)?;
+    run_zm_vidsort(&dir_name)?;
 
     run_mp4_to_webm(&dir_name)?;  // Run the video conversion process
 
